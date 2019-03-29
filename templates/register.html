@@ -1,0 +1,53 @@
+<html>
+    <head><meta charset="UTF-8">
+        <title>用户注册</title>
+    <script language="JavaScript" type="text/JavaScript">
+        function custCheck() {
+            var custName=document.getElementById("custName");
+            var email=document.getElementById("email");
+            var password = document.getElementById("password");
+            var confirmPassword=document.getElementById("confirmPassword")
+            if(custName.value==""){
+                alert("用户名不能为空！");
+            }
+            else if(email.value.indexOf("@")==-1){
+                alert("电子邮件格式不正确");
+                return false;
+            }
+            else if(password.value.length<=3){
+                alert("密码过短");
+                return false;
+            }
+            else if(password.value.length>=16){
+                alert("密码过长");
+                return false;
+            }
+            else if(confirmPassword!=password){
+                alert("确认密码与密码不相符");
+                return false;
+            }
+        }
+    </script>
+    </head>
+    <form>
+        <body>
+        请输入信息
+        <table>
+            <tr><td>用户名：</td>
+                <td><input type="text" name="custName" id="custName">
+                </td></tr>
+            <tr><td>电子邮箱：</td>
+                <td><input type="text" name="email" id="email">
+                </td></tr>
+            <tr><td>密码：</td>
+                <td><input type="password" name="password" id="password">
+                </td></tr>
+            <tr><td>确认密码：</td>
+                <td><input type="password" name="confirmPassword" id="confirmPassword">
+                </td></tr>
+        </table>
+        <input type="submit" value="确定" onclick="custCheck()">
+        <input type="reset" value="重置">
+        </body>
+    </form>    
+</html>
